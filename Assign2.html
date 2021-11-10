@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Assignment-2 | Akhter </title>
+</head>
+
+<body style="text-align: center;">
+    <div style="text-align: left; width:500px; margin: auto;">
+        <div>
+            <label for="sentence">Enter the sentence : </label>
+            <input type="text" id="sentence">
+        </div><br>
+
+        <div>
+            <label for="letter">Enter the letter : </label>
+            <input type="text" id="letter">
+        </div> <br>
+
+        <!-- Button -->
+        <button id="btn">Submit</button> <br> <br>
+        <div id="result" style="display: none;">
+            <span> <b> Result : </b> </span>
+            <span id="result_value"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        var sentence = document.getElementById('sentence');
+        var letter = document.getElementById('letter');
+        var result = document.getElementById('result');
+        var result_value = document.getElementById('result_value');
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', () => {
+            if (sentence.value !== '' && letter.value !== '') {
+                
+                let letter_position = sentence.value.indexOf(letter.value);
+                result.style.display = 'block';
+                result_value.innerHTML = sentence.value.slice(letter_position + 1);
+                
+                if(letter_position >0){
+                    result.style.display = 'block';
+                    result_value.innerHTML = sentence.value.slice(letter_position + 1);
+                    
+                }else{
+                    document.write("The letter does not exist in the sentence");
+                }
+            } 
+
+            else {
+                alert("enter the value")
+            }
+        })
+    </script>
+
+</body>
+
+</html>
